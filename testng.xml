@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestNG Listener Example">
+    <listeners>
+        <listener class-name="setup.listeners.RetryListener" />
+    </listeners>
+
+    <test name="ArmIndian Selenium" preserve-order="true">
+        <packages>
+            <package name=""/>
+        </packages>
+    </test>
+</suite>
