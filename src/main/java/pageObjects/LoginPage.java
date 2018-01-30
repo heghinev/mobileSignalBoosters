@@ -1,61 +1,57 @@
 package pageObjects;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import pageObjects.BasePage;
 
 import static setup.DriverSetup.getDriver;
 
 public class LoginPage extends BasePage {
-    @FindBy(id = "username")
+    @FindBy(xpath = "/html/body/div[2]/nav/div/div/div[3]/div[2]/div/a")
+    private WebElement signinLocator;
+    @FindBy(xpath = "//*[@id=\"customer_login\"]/div[1]/form/div[2]/div[1]/input")
     private WebElement usernameLocator;
     @FindBy(id = "password")
     private WebElement passwordLocator;
-    @FindBy(css = "#login button")
-    private WebElement submitLocator;
-    @FindBy(css = ".flash.success")
-    private WebElement successLocator;
-    @FindBy(css = ".flash.error")
+    @FindBy(xpath = "//*[@id=\"customer_login\"]/div[1]/form/div[2]/div[3]/input[3]")
+    private WebElement loginLocator;
+    @FindBy(xpath = "//div[@class='profile-name']")
+    private WebElement myAccountLocator;
+    @FindBy(xpath = "//ul[@class='woocommerce-error']")
     private WebElement errorLocator;
-
 
     public LoginPage() {
         super(getDriver());
         visit(getUrl());
     }
 
-    public String getUrl(){
-        return BASE_URL + "/login";
+    public String getUrl() {
+        return BASE_URL;
     }
-
 
     public String getURL() {
         return driver.getCurrentUrl();
     }
 
     public void loginWith(String username, String password) {
-
-        usernameLocator.sendKeys(username);
-        passwordLocator.sendKeys(password);
-        submitLocator.click();
+        click(signinLocator);
+        type(usernameLocator, username);
+        type(passwordLocator, password);
+        click(loginLocator);
     }
 
     public boolean isSuccessDisplayed() {
-        try {
-            return successLocator.isDisplayed();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return false;
+        return isDisplayed(myAccountLocator);
     }
 
     public boolean isErrorDisplayed() {
-        return errorLocator.isDisplayed();
+        return isDisplayed(errorLocator);
     }
 
-    public String getErrormessage() {
+    public boolean isSigninDisplayed() {
+        return isDisplayed(signinLocator);
+    }
+
+    public String getErrorMessage() {
         return errorLocator.getText();
     }
 }

@@ -1,5 +1,4 @@
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pageObjects.LoginPage;
@@ -15,18 +14,9 @@ public class WrongLoginTest {
 
     @Test
     public void loginFail() {
-        wrongLoginPage.loginWith("bla", "blabla!");
-        assertTrue("Login was not succeed!",
-                wrongLoginPage.isErrorDisplayed());
-        assertTrue("Error message is not correct!",
-                wrongLoginPage.getErrormessage().contains("Your username is invalid!"));
-
-
+        wrongLoginPage.loginWith(TestUtils.randomEmail(), "1");
+        Assert.assertTrue(wrongLoginPage.isErrorDisplayed(),
+                "Login succeed!");
+        Assert.assertEquals(wrongLoginPage.getErrorMessage(), "Error: A user could not be found with this email address.");
     }
-
-    private void assertTrue(String s, boolean displayed) {
-        //To change body of created methods use File | Settings | File Templates.
-    }
-
-
 }

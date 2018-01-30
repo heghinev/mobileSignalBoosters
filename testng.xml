@@ -5,7 +5,7 @@
         <listener class-name="setup.listeners.RetryListener" />
     </listeners>
 
-    <test name="ArmIndian Selenium" preserve-order="true">
+    <test name="MSB Test" preserve-order="true">
         <packages>
             <package name=""/>
         </packages>

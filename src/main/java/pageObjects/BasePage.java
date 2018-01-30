@@ -1,7 +1,11 @@
 package pageObjects;
+
 import org.apache.commons.logging.Log;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.LoadableComponent;
 
@@ -10,7 +14,7 @@ import org.openqa.selenium.support.ui.LoadableComponent;
 public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableComponent<T> {
     private static Logger log = Logger.getLogger(Log.class.getName());
     protected WebDriver driver;
-    public static final String BASE_URL = System.getProperty("selenium.url", "http://the-internet.herokuapp.com");
+    public static final String BASE_URL = System.getProperty("selenium.url", "http://boostersaustralia.com/newsite/");
 
     public BasePage(WebDriver webdriver) {
         this.driver = webdriver;
@@ -24,6 +28,7 @@ public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableC
     }
 
     public WebElement find(By locator) {
+        log.info("Finding " + locator);
         return driver.findElement(locator);
     }
 
@@ -32,6 +37,7 @@ public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableC
     }
 
     public void click(By locator) {
+        log.info("Clicking " + locator);
         click(find(locator));
     }
 
@@ -44,6 +50,7 @@ public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableC
     }
 
     public void type(By locator, String text) {
+        log.info("Typing in " + locator);
         type(find(locator), text);
     }
 
