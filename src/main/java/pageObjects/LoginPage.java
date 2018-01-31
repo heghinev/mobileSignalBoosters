@@ -6,13 +6,13 @@ import org.openqa.selenium.support.FindBy;
 import static setup.DriverSetup.getDriver;
 
 public class LoginPage extends BasePage {
-    @FindBy(xpath = "/html/body/div[2]/nav/div/div/div[3]/div[2]/div/a")
+    @FindBy(xpath = "//a[@class='sign_in']")
     private WebElement signinLocator;
-    @FindBy(xpath = "//*[@id=\"customer_login\"]/div[1]/form/div[2]/div[1]/input")
+    @FindBy(css = "input[name='username']")
     private WebElement usernameLocator;
     @FindBy(id = "password")
     private WebElement passwordLocator;
-    @FindBy(xpath = "//*[@id=\"customer_login\"]/div[1]/form/div[2]/div[3]/input[3]")
+    @FindBy(css = "input[name='login']")
     private WebElement loginLocator;
     @FindBy(xpath = "//div[@class='profile-name']")
     private WebElement myAccountLocator;

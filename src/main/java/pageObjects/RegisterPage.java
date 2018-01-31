@@ -7,45 +7,43 @@ import setup.WaitHelper;
 import static setup.DriverSetup.getDriver;
 
 public class RegisterPage extends BasePage {
-    @FindBy(xpath = "/html/body/div[2]/nav/div/div/div[3]/div[2]/div/a")
+    @FindBy(xpath = "//a[@class='sign_in']")
     private WebElement signinLocator;
     @FindBy(id = "register_block")
     private WebElement registerLocator;
-    @FindBy(xpath = "//*[@id=\"customer_login\"]/div[2]/form/div[1]/div[2]/div[1]/div[1]/input")
+    @FindBy(css = "input[name='email']")
     private WebElement emailLocator;
     @FindBy(xpath = "//*[@id=\"customer_login\"]/div[2]/form/div[1]/div[2]/div[1]/div[2]/input")
     private WebElement passwordLocator;
     @FindBy(id = "email_password_submit")
     private WebElement continue1Locator;
-    @FindBy(xpath = "//*[@id=\"customer_login\"]/div[2]/form/div[2]/div[2]/div[1]/div[1]/input")
+    @FindBy(css = "input[name='billing_first_name']")
     private WebElement firstNameLocator;
-    @FindBy(xpath = "//*[@id=\"customer_login\"]/div[2]/form/div[2]/div[2]/div[1]/div[2]/input")
+    @FindBy(css = "input[name='billing_last_name']")
     private WebElement lastNameLocator;
-    @FindBy(xpath = "//*[@id=\"customer_login\"]/div[2]/form/div[2]/div[2]/div[1]/div[4]/input")
+    @FindBy(css = "input[name='billing_phone']")
     private WebElement phoneLocator;
-    @FindBy(xpath = "//*[@id=\"customer_login\"]/div[2]/form/div[2]/div[2]/div[1]/div[5]/input")
+    @FindBy(css = "input[name='billing_postcode']")
     private WebElement zipCodeLocator;
-    @FindBy(xpath = "//*[@id=\"customer_login\"]/div[2]/form/div[2]/div[2]/div[1]/div[6]/input")
+    @FindBy(css = "input[name='billing_country']")
     private WebElement countryLocator;
-    @FindBy(xpath = "//*[@id=\"customer_login\"]/div[2]/form/div[2]/div[2]/div[1]/div[7]/input")
+    @FindBy(css = "input[name='billing_address_1']")
     private WebElement address1Locator;
     @FindBy(id = "second_submit")
     private WebElement continue2Locator;
-    @FindBy(xpath = "//*[@id=\"customer_login\"]/div[2]/form/div[3]/div[2]/div[1]/div[1]/input")
+    @FindBy(css = "input[name='shipping_postcode']")
     private WebElement shippingZipCodeLocator;
-    @FindBy(xpath = "//*[@id=\"customer_login\"]/div[2]/form/div[3]/div[2]/div[1]/div[2]/input")
+    @FindBy(css = "input[name='shipping_city']")
     private WebElement shippingCityLocator;
-    @FindBy(xpath = "//*[@id=\"customer_login\"]/div[2]/form/div[3]/div[2]/div[1]/div[3]/input")
+    @FindBy(css = "input[name='shipping_address_1']")
     private WebElement address2Locator;
-    @FindBy(xpath = "//*[@id=\"customer_login\"]/div[2]/form/div[3]/div[2]/div[2]/input")
+    @FindBy(css = "input[name='register']")
     private WebElement submitLocator;
     // success page contains user name inside div
     @FindBy(xpath = "//div[@class='profile-name']")
     private WebElement myAccountLocator;
-
     @FindBy(xpath = "//ul[@class='woocommerce-error']")
     private WebElement errorLocator;
-
     @FindBy(xpath = "/html/body/div[2]/nav/div/div/div[3]/div[2]/div[3]/ul/li[7]/a")
     private WebElement logoutLocator;
 
